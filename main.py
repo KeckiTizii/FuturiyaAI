@@ -8,11 +8,9 @@ from g4f.Provider.PollinationsAI import PollinationsAI
 from mss import mss
 from colorama import Style, Fore
 from pydub import AudioSegment, playback
-from dotenv import load_dotenv
 
 r = sr.Recognizer()
 m = sr.Microphone()
-load_dotenv()
 
 OUTPUT_EDGE_TTS = "audio/futuriya-edge.wav"
 VOICE = "vi-VN-HoaiMyNeural"
