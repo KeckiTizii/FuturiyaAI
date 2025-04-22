@@ -1,12 +1,17 @@
-# Real-Time Conversational AI Assistant
+# Conversational AI Assistant
 
 ## Overview
 
-This project is a real-time conversational AI.
+This project is a conversational AI.
+
+## Todos
+
+- **Real-Time Conversational**
+- **GUI**
+- **Improve OCR to Image Recognition**
 
 ## Features
 
-- **Real-Time Conversational**
 - **Speech Recognition**
 - **Text-to-Speech**
 - **Image-to-Text**
