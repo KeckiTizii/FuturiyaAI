@@ -6,23 +6,23 @@ This project is a conversational AI.
 
 ## Todos
 
-- **Real-Time Conversational**
-- **GUI**
-- **Improve OCR to Image Recognition**
+- [ ] **Real-Time Conversational**
+- [ ] **GUI**
+- [ ] **Improve Image-to-Text (OCR) to Image Recognition**
 
 ## Features
 
 - **Speech Recognition**
 - **Text-to-Speech**
-- **Image-to-Text**
+- **Image-to-Text (OCR)**
 
 ## Dependencies
 
-- **GPT4Free:**
-- **PollinationsAI:**
-- **EdgeTTS:**
-- **SpeechRecognition:**
-- **MSS**
+- **[GPT4Free](https://github.com/xtekky/gpt4free)**
+- **[PollinationsAI](https://github.com/pollinations/pollinations)**
+- **[EdgeTTS](https://github.com/rany2/edge-tts)**
+- **[SpeechRecognition](https://github.com/Uberi/speech_recognition)**
+- **[MSS](https://github.com/BoboTiG/python-mss)**
 
 ## Installation
 
