@@ -8,13 +8,13 @@ This project is a conversational AI.
 
 - [ ] **Real-Time Conversational**
 - [ ] **GUI**
-- [ ] **Improve Image-to-Text (OCR) to Image Recognition**
+- [x] **Improve Image-to-Text (OCR) to Image Recognition**
 
 ## Features
 
 - **Speech Recognition**
 - **Text-to-Speech**
-- **Image-to-Text (OCR)**
+- **Image-to-Text (OCR) - Image Recognition**
 
 ## Dependencies
 
