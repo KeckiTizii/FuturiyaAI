@@ -2,6 +2,7 @@ import os
 import asyncio
 import edge_tts
 import speech_recognition as sr
+import keyboard
 
 from g4f.client import AsyncClient
 from g4f.Provider.PollinationsAI import PollinationsAI
@@ -59,6 +60,7 @@ async def chat():
         playback.play(PLAY_EDGE_TTS)
     except Exception as e:
         print("Error while trying play sound", e)
+    print("Press 'R' to start")
 
 def starting():
     cl = lambda: os.system('cls')
@@ -80,19 +82,21 @@ try:
     print(Style.RESET_ALL + "A moment of silence, please...")
     with m as source: r.adjust_for_ambient_noise(source)
     print("Set minimum energy threshold to {}".format(r.energy_threshold))
+    print("Press 'R' to start")
     while True:
-        print("Say something!")
-        with m as source: audio = r.listen(source)
-        print("Got it! Now to recognize it...")
-        try:
-            global speech
-            speech = r.recognize_google(audio, language="vi-VN", show_all= False)
-            messages_log.append({"role": "user", "content": speech})
-            print("You: {}".format(speech))
-            asyncio.run(chat())
-        except sr.UnknownValueError:
-            print("Oops! Didn't catch that")
-        except sr.RequestError as e:
-            print("Uh oh! Couldn't request results from Google Speech Recognition service; {0}".format(e))
+        if keyboard.is_pressed('r'):
+            print("Say something!")
+            with m as source: audio = r.listen(source)
+            print("Got it! Now to recognize it...")
+            try:
+                global speech
+                speech = r.recognize_google(audio, language="vi-VN", show_all= False)
+                messages_log.append({"role": "user", "content": speech})
+                print("You: {}".format(speech))
+                asyncio.run(chat())
+            except sr.UnknownValueError:
+                print("Oops! Didn't catch that")
+            except sr.RequestError as e:
+                print("Uh oh! Couldn't request results from Google Speech Recognition service; {0}".format(e))
 except KeyboardInterrupt:
     print('Closing Futuriya... \n Thanks For Using.')
