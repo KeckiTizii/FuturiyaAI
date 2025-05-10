@@ -8,11 +8,11 @@ from g4f.Provider.PollinationsAI import PollinationsAI
 from mss import mss
 from colorama import Style, Fore
 from pydub import AudioSegment, playback
-from dotenv import load_dotenv
 
 r = sr.Recognizer()
 m = sr.Microphone()
-load_dotenv()
+
+messages_log=[]
 
 OUTPUT_EDGE_TTS = "audio/futuriya-edge.wav"
 VOICE = "vi-VN-HoaiMyNeural"
@@ -33,9 +33,7 @@ async def chat():
             with open("screenshot/screenshot.png", "rb") as image:
                 stream = client.chat.completions.stream(
                     model="openai",
-                    messages=[
-                        {"role": "user", "content": speech}
-                    ],
+                    messages=messages_log,
                     image=image
                 )
                 async for chunk in stream:
@@ -44,9 +42,7 @@ async def chat():
         else:
             stream = client.chat.completions.stream(
                 model="openai",
-                messages=[
-                    {"role": "user", "content": speech}
-                ],
+                messages=messages_log,
             )
             async for chunk in stream:
                 if chunk.choices and chunk.choices[0].delta.content:
@@ -91,6 +87,7 @@ try:
         try:
             global speech
             speech = r.recognize_google(audio, language="vi-VN", show_all= False)
+            messages_log.append({"role": "user", "content": speech})
             print("You: {}".format(speech))
             asyncio.run(chat())
         except sr.UnknownValueError:
